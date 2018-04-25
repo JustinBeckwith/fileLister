@@ -37,6 +37,7 @@ exports.handler = function(event, context, callback) {
   }).catch(e => {
     callback(e);
   });
+
   // callback(null, {
   //   statusCode: 200,
   //   body: { foo: 'bar' }

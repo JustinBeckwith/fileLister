@@ -29,16 +29,16 @@ async function getFiles () {
 }
 
 exports.handler = function(event, context, callback) {
-  // getFiles().then(res => {
-  //   callback(null, {
-  //     statusCode: 200,
-  //     body: res.data
-  //   });
-  // }).catch(e => {
-  //   callback(e);
-  // });
-  callback(null, {
-    statusCode: 200,
-    body: { foo: 'bar' }
+  getFiles().then(res => {
+    callback(null, {
+      statusCode: 200,
+      body: res.data
+    });
+  }).catch(e => {
+    callback(e);
   });
+  // callback(null, {
+  //   statusCode: 200,
+  //   body: { foo: 'bar' }
+  // });
 }

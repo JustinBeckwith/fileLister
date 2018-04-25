@@ -29,6 +29,7 @@ async function getFiles () {
 }
 
 exports.handler = function(event, context, callback) {
+  console.log('DATE! ' + (new Date()));
   getFiles().then(res => {
     callback(null, {
       statusCode: 200,

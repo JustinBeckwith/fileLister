@@ -2,17 +2,7 @@
 
 const {google} = require('googleapis');
 const path = require('path');
-const express = require('express');
 const fs = require('fs');
-
-const app = express()
-app.get('/', async (req, res) => {
-  const {data} = await getFiles();
-  res.json(data);
-});
-app.listen(3000, () => {
-  console.log('Listening on port 3000.');
-});
 
 function getCredentials() {
   const filePath = path.join(__dirname, 'keys.json');
@@ -36,4 +26,15 @@ async function getFiles () {
     auth: client
   });
   return drive.files.list();
+}
+
+exports.handler = function(event, context, callback) {
+  getFiles().then(res => {
+    callback(null, {
+      statusCode: 200,
+      body: res.data
+    });
+  }).catch(e => {
+    callback(e);
+  });
 }

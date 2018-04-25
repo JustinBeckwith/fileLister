@@ -1,0 +1,17 @@
+{
+  "name": "file-lister",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "netlify-lambda build src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^29.0.0",
+    "netlify-lambda": "^0.4.0"
+  }
+}
